@@ -59,6 +59,22 @@
         <p>&copy; 2025 Daler. All rights reserved.</p>
     </footer>
 
+
 </body>
+
+<!-- Add before </body> in index.html -->
+<script>
+    document.querySelectorAll('section').forEach(section => {
+        function reveal() {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                section.classList.add('visible');
+                window.removeEventListener('scroll', reveal);
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    });
+</script>
 
 </html>
